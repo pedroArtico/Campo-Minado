@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>&#128163; Campo minado</title>
+
+    <link href="styles.css" type="text/css" rel="stylesheet">
+    <script src="game.js"></script>
+
+</head>
+<body onload="pageLoad();">
+<h1 id="gameBigTitle">Campo Minado</h1>
+<div class="configs" id="configs">
+    <div id="setupArea" class="configsInside">
+        <h2>Configurar jogo</h2>
+        <form name="setupForm" onsubmit="return setup()">
+            <label for="name">Nome</label>
+            <input type="text" name="nome" id="name" placeholder="Seu Nome Aqui" required class="inputFill">
+
+            <label for="tblx">Altura do tabuleiro</label>
+            <input type="number" placeholder="30" name="tblx" id="tblx" min="2" required class="inputFill">
+
+            <label for="tbly">Largura do tabuleiro</label>
+            <input type="number" placeholder="30" name="tbly" id="tbly" min="2" required class="inputFill">
+
+            <label for="bombAmount">Quantidade de bombas</label>
+            <input type="number" placeholder="7" name="bombAmount" id="bombAmount" min="1" required class="inputFill">
+
+            <button type="submit" class="button blueButton">Jogar</button>
+            <button class="button redButton" onclick="cleanTexts();">Limpar</button>
+        </form>
+    </div>
+
+    <div id="optionsArea" class="configsInside">
+        <h2>Opções</h2>
+
+            <label for="cheatOption">Cheat: ver células</label>
+            <button name="cheatOption" id="cheatOption" class="button" onclick="cheat();">Não</button>
+
+            <label for="resetGame">Reiniciar jogo</label>
+            <button name="restartGame" id="resetGame" class="button blueButton" onclick="restartGameFull();">Reiniciar</button>
+    </div>
+
+    <div id="histArea" class="configsInside">
+        <h2>Histórico</h2>
+        <div id="hist" class="histArea">
+        </div>
+        <button id="clearHist" name="clearHust" class="button redButton" onclick="clearHistoric('hist');">Apagar histórico</button>
+    </div>
+</div>
+
+<div id="gameArea">
+    <div>
+        <h2 class="title"><span>Jogo</span> <span id="time" class="spnTime">00:00:00</span></h2>
+    </div>
+    <div class="game" id="game">
+        <span class="gameName">&#128163; Campo minado &#128163;</span>
+    </div>
+
+</div>
+
+<div id="vitoria" class="msg vitoria">
+    <p>VOCÊ VENCEU!!!</p>
+    <div class="buttons">
+        <button id="reiniciarvit" class="button" onclick="closepicture('vitoria');restartGameFull()">Novo Jogo</button>
+        <button id=vertabvit" class="button" onclick="closepicture('vitoria');">Ver tabuleiro</button>
+    </div>
+</div>
+
+<div id="derrota" class="msg derrota">
+    <p>VOCÊ PERDEU</p>
+    <div class="buttons">
+        <button id="reiniciarped" class="button" onclick="closepicture('derrota');restartGameFull();">Novo Jogo</button>
+        <button id="vertabperd" class="button" onclick="closepicture('derrota');">Ver tabuleiro</button>
+    </div>
+</div>
+
+
+		 
+
+
+
+</body>
+</html>
